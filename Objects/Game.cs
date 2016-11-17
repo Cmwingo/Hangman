@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Nancy;
 
-namespace GameState
+namespace GameState.Objects
 {
   public class Game
   {
@@ -9,21 +9,22 @@ namespace GameState
     public string AlreadyGuessed {get; set;}
     public string Answer {get; set;}
     public string PuzzleString {get; set;}
+    public static List<Game> gameList = new List<Game>{};
 
-    Game game = new Game (string answer)
-    {
-      game.Answer = answer;
-      game.Guesses = 6;
-      game.AlreadyGuessed = "";
-      game.PuzzleString = GeneratePuzzleString(answer);
-    }
+    public Game(string answer)
+      {
+        this.Answer = answer;
+        this.Guesses = 6;
+        this.AlreadyGuessed = "";
+        this.PuzzleString = GeneratePuzzleString(answer);
+      }
 
     public string GeneratePuzzleString(string answer)
     {
       var puzzleString = "";
-      for (int i = 0; i < answer.Length(); i++)
+      for (int i = 0; i < answer.Length; i++)
       {
-        puzzleString += "_";
+        puzzleString += "_ ";
       }
       return puzzleString;
     }
@@ -31,7 +32,7 @@ namespace GameState
 
   public class WordList
   {
-    List<String> wordList = new List<string>{
+    List<string> wordList = new List<string>{
       "test",
       "epicodus",
     };
