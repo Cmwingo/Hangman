@@ -25,3 +25,36 @@ For a bonus: Make it 2 player! Create a new form page where one user can choose 
 Objects:
 Word list
 Game state (guesses, letters already guessed/prevent duplicate guesses, word to guess/answer, etc)
+
+
+for each char in answer string
+  if guessedLetters.Inclues(char)
+  {
+
+  }
+  else
+  {
+    answer.Replace(charAt(index), _ )
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+string Answer;
+string displayedAnswer;
+
+string GuessedLetters = "";
+
+foreach letter in displayedAnswer {
+  if (!GuessedLetters.Contains(letter))
+}

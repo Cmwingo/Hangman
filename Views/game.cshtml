@@ -1,7 +1,6 @@
 <h1>Hangman</h1>
 <h3>@Model.PuzzleString</h3>
 <form action='/guess' method="post">
-  <input id='game' name='game' type='hidden' value='@Model'>
   <label for='guess'>Guess a letter:</label>
   <input id='guess' name='guess' type='text'>
   <button type='submit'>Guess</button>

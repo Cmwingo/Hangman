@@ -17,24 +17,11 @@ namespace GameState
       };
       Post["/guess"] = _ => {
         Game currentGame = Game.gameList[0];
-        currentGame.PuzzleString = "test";
+        string guess = Request.Form["guess"];
+        currentGame.AlreadyGuessed += guess;
+        currentGame.GeneratePuzzleString(currentGame);
         return View["game.cshtml", currentGame];
       };
     }
   }
 }
-
-// Post["/guess"] = _ => {
-//   string guess = Request.Form["guess"];
-//   string answer = Game.Answer();
-//   Game.AlreadyGuessed += guess;
-//   if(answer.Contains(guess))
-//   {
-//     System.Console.WriteLine("You guessed one");
-//   }
-//   else
-//   {
-//     System.Console.WriteLine("You didn't guess one");
-//   }
-//   return View["game.cshtml"];
-// };

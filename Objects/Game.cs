@@ -16,17 +16,24 @@ namespace GameState.Objects
         this.Answer = answer;
         this.Guesses = 6;
         this.AlreadyGuessed = "";
-        this.PuzzleString = GeneratePuzzleString(answer);
+        this.PuzzleString = "____";
       }
 
-    public string GeneratePuzzleString(string answer)
+    public void GeneratePuzzleString(Game currentGame)
     {
-      var puzzleString = "";
-      for (int i = 0; i < answer.Length; i++)
-      {
-        puzzleString += "_ ";
+      string puzzle = currentGame.Answer;
+      string newPuzzle = "";
+      string guessed = currentGame.AlreadyGuessed;
+      for (int i = 0; i < puzzle.Length; i++ ){
+        if (!guessed.Contains(puzzle[i].ToString())) {
+          newPuzzle += "_";
+        } else if (guessed.Contains(puzzle[i].ToString())) {
+          newPuzzle += puzzle[i];
+        } else {
+          newPuzzle = "invalid";
+        }
       }
-      return puzzleString;
+      currentGame.PuzzleString = newPuzzle;
     }
   }
 
