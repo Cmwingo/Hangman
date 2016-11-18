@@ -11,7 +11,8 @@ namespace GameState
       Get["/"] = _ => View["index.cshtml"];
       Post["/start"] = _ =>
       {
-        Game game = new Game("test");
+        Game game = new Game("epicodus");
+        Game.gameList.Clear();
         Game.gameList.Add(game);
         return View["game.cshtml", game];
       };

@@ -16,8 +16,26 @@ namespace GameState.Objects
         this.Answer = answer;
         this.Guesses = 6;
         this.AlreadyGuessed = "";
-        this.PuzzleString = "____";
+        this.PuzzleString = Underscorify(answer);
       }
+
+    public string Underscorify (string String) {
+      string newString = "";
+      for (int i = 0; i < String.Length; i++) {
+        newString += "_";
+        newString += "  ";
+      }
+      return newString;
+    }
+
+    public string Spacify (string String) {
+      string newString = "";
+      for (int i = 0; i < String.Length; i++) {
+        newString += String[i];
+        newString += "  ";
+      }
+      return newString;
+    }
 
     public void GeneratePuzzleString(Game currentGame)
     {
@@ -33,7 +51,7 @@ namespace GameState.Objects
           newPuzzle = "invalid";
         }
       }
-      currentGame.PuzzleString = newPuzzle;
+      currentGame.PuzzleString = Spacify(newPuzzle);
     }
   }
 
